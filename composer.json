@@ -1,0 +1,18 @@
+{
+    "name": "vccvn/crazy",
+    "type": "library",
+    "description": "Your package description goes here",
+    "keywords": ["relevant","tags","go","here"],
+    "homepage": "https://vcc.vn",
+    "license": "MIT",
+    "authors": [
+       {
+           "name": "Le Ngoc Doan",
+           "email": "doanln16@gmail.com"
+       }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"Crazy\\": "src/"}
+    }
+  }
