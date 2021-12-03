@@ -98,7 +98,7 @@ trait FilterAction
     protected $paginate = true;
 
 
-    protected $resourceNamespace = 'Crazy\Http\Resources';
+    protected $resourceNamespace = 'App\Http\Resources';
 
     /**
      * @var string $resource

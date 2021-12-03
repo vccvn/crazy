@@ -1,5 +1,5 @@
 <?php
-namespace Crazy\Magic;
+namespace Crazy\Masks;
 
 // biến đổi model thành một object để tránh bị crack
 
