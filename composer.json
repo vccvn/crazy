@@ -1,20 +1,21 @@
 {
     "name": "vccvn/crazy",
     "description": "library for laravel",
-    "type": "library",
-    "require": {
-        "guzzlehttp/guzzle": "^7.4"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Crazy\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Doan LN",
             "email": "developer.vcc@gmail.com"
         }
-    ]
+    ],
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Crazy\\": "src/"
+        }
+    }
 }
