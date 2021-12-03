@@ -10,9 +10,6 @@
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
-    "require": {
-        "guzzlehttp/guzzle": "^7.4"
-    },
     "autoload": {
         "psr-4": {
             "Crazy\\": "src/"
