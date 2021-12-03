@@ -1,18 +1,20 @@
 {
     "name": "vccvn/crazy",
+    "description": "library for laravel",
     "type": "library",
-    "description": "Your package description goes here",
-    "keywords": ["relevant","tags","go","here"],
-    "homepage": "https://vcc.vn",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    },
     "license": "MIT",
-    "authors": [
-       {
-           "name": "Le Ngoc Doan",
-           "email": "doanln16@gmail.com"
-       }
-    ],
-    "require": {},
     "autoload": {
-        "psr-4": {"Crazy\\": "src/"}
-    }
-  }
+        "psr-4": {
+            "Crazy\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Doan LN",
+            "email": "developer.vcc@gmail.com"
+        }
+    ]
+}
