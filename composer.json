@@ -12,7 +12,8 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Crazy\\": "src/"
-        }
+            "Crazy\\": "src/app/"
+        },
+        "files": ["helpers/utils.php"]
     }
 }
