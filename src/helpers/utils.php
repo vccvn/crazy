@@ -1263,3 +1263,141 @@ if (!function_exists('get_hosting_commands')) {
         ];
     }
 }
+
+
+if (!function_exists('parse_query_data')) {
+
+    /**
+     * chuẩn hóa query string
+     * @param string $query query or url
+     * @param array $data mang cac tham so
+     * @param string|array $ignore ten tham so dc bo qua
+     * @return array
+     */
+    function parse_query_data($query = null)
+    {
+        $arr = [];
+        if ($query && is_string($query)) {
+            try {
+                $a = explode('?', $query);
+                if(count($a) == 2) $query = $a[1];
+                parse_str($query, $d);
+                if ($d) {
+                    $arr = $d;
+                }
+            } catch (Exception $e) {
+                // eo can lam gi cung dc
+            }
+        }
+        $arr;
+
+    }
+}
+if (!function_exists('parse_query_string')) {
+
+    /**
+     * chuẩn hóa query string
+     * @param string $query co san
+     * @param array $data mang cac tham so
+     * @param string|array $ignore ten tham so dc bo qua
+     * @return string
+     */
+    function parse_query_string($query = null, array $data = [], $ignore = null)
+    {
+        $arr = [];
+        if ($query && is_string($query)) {
+            try {
+                parse_str($query, $d);
+                if ($d) {
+                    $arr = $d;
+                }
+            } catch (Exception $e) {
+                // eo can lam gi cung dc
+            }
+        }
+
+        if (is_array($data)) {
+            foreach ($data as $name => $value) {
+                if (!is_null($value) && (is_numeric($value) || is_string($value)) && strlen($value) > 0) {
+                    $arr[$name] = $value;
+                }
+            }
+        }
+        $s = '';
+        if ($arr) {
+            // nếu là array
+            if(is_array($ignore)){
+                foreach ($arr as $n => $v) {
+                    if(!in_array($n, $ignore)){
+                        $s .= "$n=".urlencode($v)."&";
+                    }
+                }
+                $s = trim($s, '&');
+                return $s;
+            }
+            // neu la string
+            if($ignore && isset($arr[$ignore])) unset($arr[$ignore]);
+            foreach ($arr as $n => $v) {
+                $s .= "$n=".urlencode($v)."&";
+            }
+            $s = trim($s, '&');
+        }
+        return $s;
+    }
+}
+
+if(!function_exists('url_merge')){
+    /**
+     *
+     * add quey string to url
+     * @param string $url dung dan lien ket
+     * @param array $name mang query hoac ten bien neu la bien don
+     * @param string $val gia tri bien
+     * @return string $url
+     */
+
+    function url_merge($url, $name = null, $val = null, $ignore = null){
+        $u = $url;
+        $r = [];
+        $f = explode('?',$url);
+        $q = '';
+        $u = $f[0];
+        if(count($f)>1){
+            $q = $f[1];
+        }
+        if($name){
+            if(is_string($name)) $r[$name] = $val;
+            elseif(is_array($name)){
+                foreach($name as $n => $v){
+                    if(is_string($n)){
+                        $r[$n] = $v;
+                    }
+                }
+            }
+
+        }
+        if($q || $r){
+            $u.='?'.parse_query_string($q, $r, $ignore);
+        }
+        return $u;
+    }
+}
+
+
+if(!function_exists('url_relative')){
+    /**
+     * xóa link asset và thay bằng /
+     * @param string $url đường dẫn tuyệt đối
+     *
+     * @return string trả về url
+     */
+    function url_relative(string $url) : string
+    {
+        // tìm các chứa địa chỉ trang chủ thay bằng /
+        $search = rtrim(asset('/'), '/').'/';
+        $replace = '/';
+        $newUrl = str_replace($search, $replace, $url);
+        return $newUrl;
+    }
+}
+
