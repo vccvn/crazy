@@ -13,6 +13,6 @@ trait ModelFileMethods
      */
     public function getSecretPath($path = null)
     {
-        return 'static/users/' . get_secret_id($this->owner_id) . ($path ? '/' . ltrim($path) : '');
+        return ltrim($path);
     }
 }
