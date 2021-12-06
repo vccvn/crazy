@@ -1401,3 +1401,15 @@ if(!function_exists('url_relative')){
     }
 }
 
+
+if (!function_exists('json_path')) {
+    /**
+     * lấy dường dẫn từ thư mục json
+     * @param string $path
+     * @return string
+     */
+    function json_path($path = null)
+    {
+        return base_path('json') . ($path ? '/' . ltrim($path, '/') : '');
+    }
+}
