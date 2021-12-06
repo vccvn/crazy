@@ -19,7 +19,7 @@ abstract class Nothing implements Countable, ArrayAccess, IteratorAggregate, Jso
     
     /**
      * hàm khởi tạo
-     * @param App\Models\Model
+     * @param Crazy\Models\Model
      * @return void
      */
     public function __construct($model = null, $collectionClass = null)

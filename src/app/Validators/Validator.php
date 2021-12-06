@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Validators;
+namespace Crazy\Validators;
 
 use Illuminate\Support\Facades\Validator as BaseValidator;
 

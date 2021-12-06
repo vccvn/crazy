@@ -42,7 +42,7 @@ abstract class Mask implements Countable, ArrayAccess, IteratorAggregate, JsonSe
     
     /**
      * hàm khởi tạo
-     * @param App\Models\Model
+     * @param Crazy\Models\Model
      * @return void
      */
     public function __construct($model, $collectionClass = null)
@@ -53,7 +53,7 @@ abstract class Mask implements Countable, ArrayAccess, IteratorAggregate, JsonSe
     
     /**
      * Thiết lập thông số
-     * @param App\Models\Model
+     * @param Crazy\Models\Model
      * @return Mask
      */
     final protected function setup($model, $collectionClass = null)
@@ -203,9 +203,9 @@ abstract class Mask implements Countable, ArrayAccess, IteratorAggregate, JsonSe
     /**
      * chuẩn hóa dữ liệu quan hệ
      *
-     * @param \Illuminate\Support\Collection|\App\Models\Model $relation
+     * @param \Illuminate\Support\Collection|\Crazy\Models\Model $relation
      * @param string $mask
-     * @return Mask|MaskCollection|\Illuminate\Support\Collection|\App\Models\Model
+     * @return Mask|MaskCollection|\Illuminate\Support\Collection|\Crazy\Models\Model
      */
     protected function parseRelation($relation, $mask = null)
     {
@@ -223,7 +223,7 @@ abstract class Mask implements Countable, ArrayAccess, IteratorAggregate, JsonSe
      *
      * @param string $key
      * @param bool $loadIfNotExists load dữ liệu nếu chưa tồn tại
-     * @return Mask|MaskCollection|\Illuminate\Support\Collection|\App\Models\Model|null
+     * @return Mask|MaskCollection|\Illuminate\Support\Collection|\Crazy\Models\Model|null
      */
     final protected function relation($key, $loadIfNotExists = false)
     {

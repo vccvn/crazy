@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Validators;
+namespace Crazy\Validators;
 
-use App\Repositories\Locations\DistrictRepository;
-use App\Repositories\Locations\RegionRepository;
-use App\Repositories\Locations\WardRepository;
 use Crazy\Files\Filemanager;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -49,7 +46,7 @@ trait DefaultMethods{
     /**
      * repository
      *
-     * @var \App\Repositories\Base\BaseRepository
+     * @var \Crazy\Repositories\Base\BaseRepository
      */
     protected $repository = null;
 
@@ -284,20 +281,6 @@ trait DefaultMethods{
         });
 
         
-        $this->addRule('check_region', function($prop, $value){
-            if(!$value) return true;
-            return app(RegionRepository::class)->find($value) ? true : false;
-        });
-        $this->addRule('check_district', function($prop, $value, $parameters){
-            if(!$value) return true;
-            $region_id = ($p = $this->parseParameters($parameters))? ($p[0] && $this->{$p[0]} ?$this->{$p[0]} : $this->region_id ) : $this->region_id;
-            return $region_id && app(DistrictRepository::class)->first(['id' => $value, 'region_id' => $region_id]) ? true : false;
-        });
-        $this->addRule('check_ward', function($prop, $value, $parameters){
-            if(!$value) return true;
-            $district_id = ($p = $this->parseParameters($parameters))? ($p[0] && $this->{$p[0]} ?$this->{$p[0]} : $this->district_id ) : $this->district_id;
-            return $district_id && app(WardRepository::class)->first(['id' => $value, 'district_id' => $district_id]) ? true : false;
-        });
         $this->addRule('base64_size', function($prop, $value, $parameters){
             $p = $this->parseParameters($parameters);
             if(!$p || !is_numeric($p[0]) || count($it = explode(',', $value)) < 2) return true;
