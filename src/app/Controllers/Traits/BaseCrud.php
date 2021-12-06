@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Traits;
+namespace Crazy\Controllers\Traits;
 
 use Crazy\Helpers\Arr;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ use Crazy\Laravel\Router;
 
 /**
  * các thuộc tính và phương thức của form sẽ được triển trong ManagerController
- * @method mixed ajaxSaveSuccess(Request $request, \App\Models\Model $model) can thiệp sau khi lưu ajax thành công
+ * @method mixed ajaxSaveSuccess(Request $request, \Crazy\Models\Model $model) can thiệp sau khi lưu ajax thành công
  * @method mixed ajaxSaveError(Request $request, array $errors) can thiệp Khi có lỗi xảy ra
  * 
  */
@@ -22,7 +22,7 @@ trait BaseCrud
     public $updateMessage = null;
 
     /**
-     * @var \App\Validators\BaseValidator
+     * @var \Crazy\Validators\BaseValidator
      */
     public $validator;
 

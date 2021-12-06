@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Traits;
+namespace Crazy\Controllers\Traits;
 
 use BadMethodCallException;
 use Closure;

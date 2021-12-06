@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Traits;
+namespace Crazy\Controllers\Traits;
 
 use Crazy\Helpers\Arr;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ trait ApiCrud
 {
 
     /**
-     * @var App\Validators\BaseValidator
+     * @var Crazy\Validators\BaseValidator
      */
     public $validator;
 

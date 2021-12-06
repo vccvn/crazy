@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers\Traits;
+namespace Crazy\Controllers\Traits;
 
-use App\Models\Model;
+use Crazy\Models\Model;
 use Crazy\Helpers\Arr;
 use Illuminate\Http\Request;
 // use Crazy\Html\HTML;
@@ -35,16 +35,16 @@ use Crazy\Laravel\Router;
  * @method void beforeRestore( Request $request)
  * @method void beforeDelete( Request $request)
  * 
- * @method void afterSave( Request $request, \App\Models\Model $result )
- * @method void afterAjaxSave( Request $request, \App\Models\Model $result )
- * @method void afterCreate( Request $request, \App\Models\Model $result ) 
- * @method void afterAjaxCreate( Request $request, \App\Models\Model $result ) 
- * @method void afterStore( Request $request, \App\Models\Model $result ) 
- * @method void afterUpdate( Request $request, \App\Models\Model $result ) 
- * @method void afterAjaxUpdate( Request $request, \App\Models\Model $result ) 
- * @method void afterMoveToTrash( Request $request, \App\Models\Model $result ) 
- * @method void afterRestore( Request $request, \App\Models\Model $result )
- * @method void afterDelete( Request $request, \App\Models\Model $result )
+ * @method void afterSave( Request $request, \Crazy\Models\Model $result )
+ * @method void afterAjaxSave( Request $request, \Crazy\Models\Model $result )
+ * @method void afterCreate( Request $request, \Crazy\Models\Model $result ) 
+ * @method void afterAjaxCreate( Request $request, \Crazy\Models\Model $result ) 
+ * @method void afterStore( Request $request, \Crazy\Models\Model $result ) 
+ * @method void afterUpdate( Request $request, \Crazy\Models\Model $result ) 
+ * @method void afterAjaxUpdate( Request $request, \Crazy\Models\Model $result ) 
+ * @method void afterMoveToTrash( Request $request, \Crazy\Models\Model $result ) 
+ * @method void afterRestore( Request $request, \Crazy\Models\Model $result )
+ * @method void afterDelete( Request $request, \Crazy\Models\Model $result )
  * 
  * @method mixed done( Request $request, Arr $data )
  */

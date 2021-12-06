@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Traits;
+namespace Crazy\Controllers\Traits;
 
 use Crazy\Helpers\Arr;
 use Illuminate\Http\Request;
@@ -37,7 +37,7 @@ trait ApiFilter{
      * lấy danh sách
      * @param Iluminate\Http\Request
      * @param array $args Tham số tùy chỉnh
-     * @param App\Repositories\Repository $repository (option)
+     * @param Crazy\Repositories\Repository $repository (option)
      *
      * @return response
      */

@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace Crazy\Controllers;
 
-use App\Controllers\Controller;
 
 
 use Illuminate\Http\Request;

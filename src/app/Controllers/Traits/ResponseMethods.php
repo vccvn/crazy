@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Traits;
+namespace Crazy\Controllers\Traits;
 
 use Crazy\Helpers\Arr;
 use Illuminate\Http\Request;
@@ -56,7 +56,7 @@ trait ResponseMethods
      * lấy danh sách 
      * @param Iluminate\Http\Request
      * @param array $args Tham số tùy chỉnh
-     * @param \App\Repositories\BaseRepository $repository (option)
+     * @param \Crazy\Repositories\BaseRepository $repository (option)
      * 
      * @return \Illuminate\Http\JsonResponse
      */
