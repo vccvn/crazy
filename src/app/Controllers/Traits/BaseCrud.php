@@ -65,15 +65,24 @@ trait BaseCrud
         if (!$validator->success()) {
             // $errors = new Arr($validator->errors());
             $errors = $validator->errors();
+
             if ($rs = $this->callCrudEvent('onError', $request, $errors)) {
                 return $rs;
+            }
+            if ($rs = $this->callCrudEvent('onValidateError', $request, $errors)) {
+                return $rs;
+            }
+            if ($rs = $this->fire('validateError', $this, $request, $errors)) {
+                foreach ($rs as $r) {
+                    if ($r) return $r;
+                }
             }
             if ($rs = $this->fire('saveFailed', $this, $request, $errors)) {
                 foreach ($rs as $r) {
                     if ($r) return $r;
                 }
             }
-            return redirect()->back()->withErrors($validator->getErrorObject())->withInput();
+            return redirect()->back()->with('error', 'Lỗi Xác thực dữ liệu')->withErrors($validator->getErrorObject())->withInput();
         }
         $this->validator = $validator;
         // tao doi tuong data de de truy cap phan tu
