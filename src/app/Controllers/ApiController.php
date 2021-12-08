@@ -1,6 +1,6 @@
 <?php
 
-namespace Crazy\Controllers\Apis;
+namespace Crazy\Controllers;
 
 use Crazy\Controllers\Traits\ApiMethods;
 use Crazy\Controllers\Traits\Events;
