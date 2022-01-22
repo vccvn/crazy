@@ -6,6 +6,7 @@ use ReflectionClass;
 use Crazy\Masks\Mask;
 use Crazy\Masks\MaskCollection;
 use Crazy\Helpers\Arr;
+use Crazy\Models\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
@@ -258,7 +259,7 @@ trait FilterAction
      * @param illuminate\Http\Request $request
      * @param array $args
      * 
-     * @return Collection 
+     * @return LengthAwarePaginator|MaskCollection|Model[]
      */
     public function getFilter($request, array $args = [])
     {
