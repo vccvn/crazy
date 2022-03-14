@@ -120,7 +120,7 @@ abstract class BaseApi
      * @return object Client
      */
 
-    protected function makeRequest($method, $url = null, array $data = [], array $headers = [])
+    protected function send($method, $url = null, array $data = [], array $headers = [])
     {
         if (is_array($method)) {
             $m = array_key_exists('method', $method) ? $method['method'] : 'GET';
@@ -139,14 +139,21 @@ abstract class BaseApi
         }
         try {
             $headerData = array_merge($defaultOptions, (array) $headers);
-            $response = $client->request($method, $url, [
+            $params = [
                 'headers' => $headerData,
                 //    'form_params' => $data
-                'body' => json_encode((array) $data),
+                // 'body' => json_encode((array) $data),
                 'curl' => [
                     CURLOPT_TCP_KEEPALIVE => 1
                 ]
-            ]);
+            ];
+            if(in_array(strtolower($method), ['post', 'put'])){
+                $params['body'] = json_encode((array) $data);
+            }else{
+                $url = url_merge($url, $data);
+            }
+
+            $response = $client->request($method, $url, $params);
             
 
             if ($type == 'json') {
@@ -167,30 +174,4 @@ abstract class BaseApi
         return $this->http_code;
     }
 
-
-    /**
-     * gửi request đến API server
-     * @param string $url               là sub url nghĩ là không cần địa chỉ server chỉ cần /module/abc...
-     * @param string $method            [= GET / POST / PUT / PATCH / DELETE / OPTION]
-     * @param array  $data              mãng data get cũng dùng dc luôn
-     * @param array  $headers           Mãng header. cái này tùy chọn
-     * 
-     * @return object Client
-     */
-
-    public function send($url, $method = 'GET', $data = [], array $headers = [])
-    {
-        try {
-            $client = new Client();
-            $response = $client->request($method, $url, array_merge($headers, [
-                'headers' => $headers,
-                //    'form_params' => $data
-                'body' => json_encode($data)
-            ]));
-            return $response;
-        } catch (BadResponseException $exception) {
-
-            return null;
-        }
-    }
 }

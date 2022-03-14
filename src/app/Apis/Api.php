@@ -19,6 +19,6 @@ class Api extends BaseApi{
     public function __call($name, $arguments)
     {
         $method = strtoupper($name);
-        return $this->makeRequest($method, ...$arguments);
+        return $this->send($method, ...$arguments);
     }
 }
