@@ -1289,7 +1289,7 @@ if (!function_exists('parse_query_data')) {
                 // eo can lam gi cung dc
             }
         }
-        $arr;
+        return $arr;
 
     }
 }
