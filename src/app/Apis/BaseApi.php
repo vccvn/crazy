@@ -5,7 +5,7 @@ namespace Crazy\Apis;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Crazy\Helpers\Arr;
-
+use GuzzleHttp\Exception\GuzzleException;
 abstract class BaseApi
 {
     protected $http_code = 200;
@@ -79,7 +79,7 @@ abstract class BaseApi
             ]);
     
             return $response;
-        } catch (BadResponseException $th) {
+        } catch (GuzzleException $th) {
             return null;
         }
         
@@ -163,7 +163,7 @@ abstract class BaseApi
                 return $response->getBody()->getContents();
             }
             return $response;
-        } catch (BadResponseException $th) {
+        } catch (GuzzleException $th) {
             return null;
         }
     }
